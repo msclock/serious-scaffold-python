@@ -2,11 +2,12 @@
 
 A development-focused Python project template with various integrations, configurations and modules.
 
-[![pipeline status](https://gitlab.com/serious-scaffold/serious-scaffold-python/badges/main/pipeline.svg)](https://gitlab.com/serious-scaffold/serious-scaffold-python/-/commits/main)
-[![coverage report](https://gitlab.com/serious-scaffold/serious-scaffold-python/badges/main/coverage.svg)](https://gitlab.com/serious-scaffold/serious-scaffold-python/-/commits/main)
-[![Latest Release](https://gitlab.com/serious-scaffold/serious-scaffold-python/-/badges/release.svg)](https://gitlab.com/serious-scaffold/serious-scaffold-python/-/releases)[![PyPI](https://img.shields.io/pypi/v/serious-scaffold)](https://pypi.org/project/serious-scaffold/)
+[![CI](https://github.com/serious-scaffold/serious-scaffold-python/actions/workflows/ci.yml/badge.svg)](https://github.com/serious-scaffold/serious-scaffold-python/actions/workflows/ci.yml)
+[![Release](https://github.com/serious-scaffold/serious-scaffold-python/actions/workflows/release.yml/badge.svg)](https://github.com/serious-scaffold/serious-scaffold-python/actions/workflows/release.yml)
+[![Coverage](https://img.shields.io/endpoint?url=https://serious-scaffold.github.io/serious-scaffold-python/reports/coverage/coverage_badge.json)](https://serious-scaffold.github.io/serious-scaffold-python/reports/coverage)
+[![PyPI](https://img.shields.io/pypi/v/serious-scaffold)](https://pypi.org/project/serious-scaffold/)
 [![PyPI - Python Version](https://img.shields.io/pypi/pyversions/serious-scaffold)](https://pypi.org/project/serious-scaffold/)
-[![GitLab](https://img.shields.io/gitlab/license/serious-scaffold/serious-scaffold-python?gitlab_url=https%3A%2F%2Fgitlab.com)](license_url())
+[![GitHub](https://img.shields.io/github/license/serious-scaffold/serious-scaffold-python)](https://github.com/serious-scaffold/serious-scaffold-python/blob/main/LICENSE)
 
 [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit)](https://github.com/pre-commit/pre-commit)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
@@ -16,9 +17,11 @@ A development-focused Python project template with various integrations, configu
 [![Pydantic v2](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/pydantic/pydantic/5697b1e4c4a9790ece607654e6c02a160620c7e1/docs/badge/v2.json)](https://pydantic.dev)
 [![Serious Scaffold Python](https://img.shields.io/badge/serious%20scaffold-python-blue)](https://github.com/serious-scaffold/serious-scaffold-python)
 
-[![Serious Scaffold Python](https://serious-scaffold.gitlab.io/serious-scaffold-python/_static/images/logo.svg)](https://gitlab.com/serious-scaffold/serious-scaffold-python)
+[![Serious Scaffold Python](https://serious-scaffold.github.io/serious-scaffold-python/_static/images/logo.svg)](https://github.com/serious-scaffold/serious-scaffold-python)
 
 Setting up a project often involves more than just establishing a basic project structure. It involves tasks like integrating GitHub Actions or GitLab CI/CD, configuring lint, test and documentation, as well as implementing settings, logging and other frequently used modules. [Serious Scaffold Python](https://github.com/serious-scaffold/serious-scaffold-python) streamlines this process. Powered by [`copier`](https://copier.readthedocs.io/), bootstrapping a new Python project can be done with a single command. By answering a few questions, the project will be fully configured and ready for development. Furthermore, the project can be updated alongside the advancement of the template.
+
+If you find this helpful, please consider [sponsorship](https://github.com/sponsors/huxuan).
 
 ## 🛠️ Features
 
@@ -82,4 +85,4 @@ pipx install pre-commit
 
 ## 📜 License
 
-MIT, for more details, see the [LICENSE](https://gitlab.com/serious-scaffold/serious-scaffold-python/-/blob/main/LICENSE) file.
+MIT, for more details, see the [LICENSE](https://github.com/serious-scaffold/serious-scaffold-python/blob/main/LICENSE) file.

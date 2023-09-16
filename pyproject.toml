@@ -36,8 +36,8 @@ requires-python = ">=3.8"
 serious-scaffold-cli = "serious_scaffold.cli:app"
 
 [project.urls]
-homepage = "https://gitlab.com/serious-scaffold/serious-scaffold-python/"
-issue = "https://gitlab.com/serious-scaffold/serious-scaffold-python/-/issues"
+homepage = "https://github.com/serious-scaffold/serious-scaffold-python/"
+issue = "https://github.com/serious-scaffold/serious-scaffold-python/issues"
 
 [tool.black]
 force-exclude = '''
