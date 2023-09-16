@@ -34,6 +34,7 @@ clean:
 		.pytest_cache \
 		.ruff_cache \
 		Pipfile* \
+		htmlcov \
 		coverage.xml \
 		dist \
 		release-notes.md
@@ -128,12 +129,6 @@ upload:
 # Documentation
 ########################################################################################
 
-# Generate documentation with auto build when changes happen.
-docs-autobuild:
-	$(PIPRUN) python -m sphinx_autobuild docs $(PUBLIC_DIR) \
-		--watch README.md \
-		--watch src
-
 # Generate changelog from git commits.
 # NOTE(xuan.hu): Need to be run before document generation to take effect.
 changelog:
@@ -142,6 +137,12 @@ changelog:
 		wget -q -O $(CHANGELOG_PATH) $(CHANGELOG_URL); \
 	fi
 	$(PIPRUN) git-changelog -ETrio $(CHANGELOG_PATH) -c conventional -s build,chore,ci,docs,feat,fix,perf,refactor,revert,style,test
+
+# Generate documentation with auto build when changes happen.
+docs-autobuild:
+	$(PIPRUN) python -m sphinx_autobuild docs $(PUBLIC_DIR) \
+		--watch README.md \
+		--watch src
 
 # Generate release notes from changelog.
 release-notes:

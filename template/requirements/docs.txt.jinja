@@ -1,0 +1,22 @@
+# Requirements for docs.
+[%- if docs_type == "sphinx" %]
+autodoc-pydantic
+coverage
+furo
+git-changelog
+mypy[reports]
+myst-parser
+pytest
+Sphinx
+sphinx-autobuild
+sphinx-click
+[%- endif %]
+[%- if docs_type == "mkdocs" %]
+mkdocs
+mkdocs-material
+mkdocs-git-revision-date-localized-plugin
+mkdocs-same-dir
+mkdocs-coverage
+mkdocstrings[python]
+mike
+[%- endif %]

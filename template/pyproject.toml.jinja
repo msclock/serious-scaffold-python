@@ -54,6 +54,10 @@ force-exclude = '''
 [%- endif %]
 
 [tool.coverage.report]
+exclude_lines = [
+  'if typing.TYPE_CHECKING:',
+  'pragma: no cover',
+]
 fail_under = {{ coverage_threshold }}
 
 [tool.coverage.run]

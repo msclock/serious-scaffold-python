@@ -37,6 +37,7 @@ clean:
 		.pytest_cache \
 		.ruff_cache \
 		Pipfile* \
+		htmlcov \
 		coverage.xml \
 		dist \
 		release-notes.md
@@ -131,12 +132,6 @@ upload:
 # Documentation
 ########################################################################################
 
-# Generate documentation with auto build when changes happen.
-docs-autobuild:
-	$(PIPRUN) python -m sphinx_autobuild docs $(PUBLIC_DIR) \
-		--watch README.md \
-		--watch src
-
 # Generate changelog from git commits.
 # NOTE(xuan.hu): Need to be run before document generation to take effect.
 changelog:
@@ -145,6 +140,13 @@ changelog:
 		wget -q -O $(CHANGELOG_PATH) $(CHANGELOG_URL); \
 	fi
 	$(PIPRUN) git-changelog -ETrio $(CHANGELOG_PATH) -c conventional -s build,chore,ci,docs,feat,fix,perf,refactor,revert,style,test
+
+[% if docs_type == "sphinx" -%]
+# Generate documentation with auto build when changes happen.
+docs-autobuild:
+	$(PIPRUN) python -m sphinx_autobuild docs $(PUBLIC_DIR) \
+		--watch README.md \
+		--watch src
 
 # Generate release notes from changelog.
 release-notes:
@@ -165,6 +167,21 @@ docs-coverage: test-run docs-gen
 
 # Generate all documentation with reports.
 docs: changelog docs-gen docs-mypy docs-coverage
+[%- endif -%]
+
+[% if docs_type == "mkdocs" -%]
+# Generate html coverage reports with badge.
+docs-coverage: test-run
+	$(PIPRUN) python -m coverage html
+	$(PIPRUN) bash scripts/generate-coverage-badge.sh htmlcov
+
+# Build documentation only from src.
+docs-gen: docs-coverage
+	$(PIPRUN) python -m mkdocs build --site-dir $(PUBLIC_DIR)
+
+# Generate all documentation with reports.
+docs: docs-gen
+[%- endif %]
 
 ########################################################################################
 # End
