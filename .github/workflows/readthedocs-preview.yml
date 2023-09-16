@@ -1,17 +1,26 @@
+# This workflow is triggered when a pull request is opened on the target branch
+name: read the docs pull request preview
+
+on:
+  pull_request_target:
+    types:
+      - opened
+
+# Set the required permissions for pull requests
+permissions:
+  pull-requests: write
+
+# Configure concurrency settings
 concurrency:
   cancel-in-progress: true
   group: ${{ github.workflow }}-${{ github.ref }}
+
 jobs:
+
+  # Job for generating documentation links
   documentation-links:
     runs-on: ubuntu-latest
     steps:
       - uses: readthedocs/actions/preview@v1
         with:
-          project-slug: serious-scaffold-python
-name: Read the Docs Pull Request Preview
-on:
-  pull_request_target:
-    types:
-      - opened
-permissions:
-  pull-requests: write
+          project-slug: ${{ github.repository }}
