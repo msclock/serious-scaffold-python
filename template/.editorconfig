@@ -9,8 +9,5 @@ charset = utf-8
 trim_trailing_whitespace = true
 insert_final_newline = true
 
-[*.{yml,yaml}]
+[*.{yml,yaml,json,toml,jinja}]
 indent_size = 2
-
-[*.{json,toml}]
-indent_size = 4

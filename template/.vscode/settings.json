@@ -1,34 +1,34 @@
 {
-    "[jsonc]": {
-        "editor.defaultFormatter": "vscode.json-language-features"
-    },
-    "[markdown]": {
-        "editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
-    },
-    "[python]": {
-        "editor.codeActionsOnSave": {
-            "source.organizeImports": true
-        },
-        "editor.defaultFormatter": "ms-python.black-formatter"
-    },
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
+  },
+  "[python]": {
     "editor.codeActionsOnSave": {
-        "source.fixAll": true
+      "source.organizeImports": true
     },
-    "editor.formatOnSave": true,
-    "editor.rulers": [
-        88
-    ],
-    "files.exclude": {
-        "**/*.egg-info": true,
-        "**/.coverage": true,
-        "**/.mypy_cache": true,
-        "**/.pytest_cache": true,
-        "**/.ruff_cache": true,
-        "**/.venv": true,
-        "**/Pipfile*": true,
-        "**/__pycache__": true,
-        "**/_build": true,
-        "**/coverage.xml": true,
-        "**/htmlcov": true
-    }
+    "editor.defaultFormatter": "ms-python.black-formatter"
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true
+  },
+  "editor.formatOnSave": true,
+  "editor.rulers": [
+    88
+  ],
+  "files.exclude": {
+    "**/*.egg-info": true,
+    "**/.coverage": true,
+    "**/.mypy_cache": true,
+    "**/.pytest_cache": true,
+    "**/.ruff_cache": true,
+    "**/.venv": true,
+    "**/Pipfile*": true,
+    "**/__pycache__": true,
+    "**/_build": true,
+    "**/coverage.xml": true,
+    "**/htmlcov": true
+  }
 }

@@ -2,15 +2,10 @@
 [% from pathjoin("includes", "version_compare.jinja") import version_between -%]
 [build-system]
 build-backend = "setuptools.build_meta"
-requires = [
-  "setuptools",
-  "setuptools-scm",
-]
+requires = ["setuptools", "setuptools-scm"]
 
 [project]
-authors = [
-  {email = "{{ author_email }}", name = "{{ author_name }}"},
-]
+authors = [{email = "i@huxuan.org", name = "huxuan"}]
 classifiers = [
   "Development Status :: 4 - Beta",
   "License :: OSI Approved :: MIT License",
@@ -29,15 +24,8 @@ classifiers = [
 [%- endif %]
 ]
 description = "{{ project_description }}"
-dynamic = [
-  "dependencies",
-  "optional-dependencies",
-  "version",
-]
-keywords = [
-  "development-focused",
-  "project template",
-]
+dynamic = ["dependencies", "optional-dependencies", "version"]
+keywords = ["development-focused", "project template"]
 name = "{{ package_name }}"
 readme = "README.md"
 requires-python = ">={{ min_py }}"
@@ -73,9 +61,7 @@ source = [
 [tool.isort]
 color_output = true
 [%- if project_name == "Serious Scaffold Python" %]
-extend_skip = [
-  "template",
-]
+extend_skip = ["template"]
 [%- endif %]
 profile = "black"
 
@@ -83,13 +69,9 @@ profile = "black"
 check_untyped_defs = true
 disallow_any_unimported = true
 disallow_untyped_defs = true
-enable_error_code = [
-  "ignore-without-code",
-]
+enable_error_code = ["ignore-without-code"]
 [%- if project_name == "Serious Scaffold Python" %]
-exclude = [
-  "template",
-]
+exclude = ["template"]
 [%- endif %]
 no_implicit_optional = true
 show_error_codes = true
@@ -106,9 +88,7 @@ minversion = "6.0"
 
 [tool.ruff]
 [%- if project_name == "Serious Scaffold Python" %]
-extend-exclude = [
-  "template",
-]
+extend-exclude = ["template"]
 [%- endif %]
 fix = true
 ignore = [

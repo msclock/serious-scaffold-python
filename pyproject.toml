@@ -1,14 +1,9 @@
 [build-system]
 build-backend = "setuptools.build_meta"
-requires = [
-  "setuptools",
-  "setuptools-scm",
-]
+requires = ["setuptools", "setuptools-scm"]
 
 [project]
-authors = [
-  {email = "i@huxuan.org", name = "huxuan"},
-]
+authors = [{email = "i@huxuan.org", name = "huxuan"}]
 classifiers = [
   "Development Status :: 4 - Beta",
   "License :: OSI Approved :: MIT License",
@@ -19,15 +14,8 @@ classifiers = [
   "Programming Language :: Python :: 3.9",
 ]
 description = "A development-focused Python project template with various integrations, configurations and modules."
-dynamic = [
-  "dependencies",
-  "optional-dependencies",
-  "version",
-]
-keywords = [
-  "development-focused",
-  "project template",
-]
+dynamic = ["dependencies", "optional-dependencies", "version"]
+keywords = ["development-focused", "project template"]
 name = "serious-scaffold"
 readme = "README.md"
 requires-python = ">=3.8"
@@ -56,21 +44,15 @@ source = [
 
 [tool.isort]
 color_output = true
-extend_skip = [
-  "template",
-]
+extend_skip = ["template"]
 profile = "black"
 
 [tool.mypy]
 check_untyped_defs = true
 disallow_any_unimported = true
 disallow_untyped_defs = true
-enable_error_code = [
-  "ignore-without-code",
-]
-exclude = [
-  "template",
-]
+enable_error_code = ["ignore-without-code"]
+exclude = ["template"]
 no_implicit_optional = true
 show_error_codes = true
 warn_return_any = true
@@ -85,9 +67,7 @@ log_format = "%(asctime)s %(levelname)s %(message)s"
 minversion = "6.0"
 
 [tool.ruff]
-extend-exclude = [
-  "template",
-]
+extend-exclude = ["template"]
 fix = true
 ignore = [
   "D203",

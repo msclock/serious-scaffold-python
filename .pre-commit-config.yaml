@@ -1,5 +1,23 @@
+# To use:
+#
+#     pre-commit run -a
+#
+# Or:
+#
+#     pre-commit install  # (runs every time you commit in git)
+#
+# To update this file:
+#
+#     pre-commit autoupdate
+#
+# See https://github.com/pre-commit/pre-commit
+#
+
 repos:
-  - hooks:
+  # Standard hooks
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.4.0
+    hooks:
       - id: check-added-large-files
       - id: check-docstring-first
       - id: check-json
@@ -11,13 +29,15 @@ repos:
       - id: forbid-new-submodules
       - id: mixed-line-ending
       - id: name-tests-test
-      - stages:
+      - id: no-commit-to-branch
+        stages:
           - push
-        id: no-commit-to-branch
-      - args:
-          - '--autofix'
-        id: pretty-format-json
-      - args:
+      - id: pretty-format-json
+        args:
+          - --autofix
+          - --no-sort-keys
+      - id: requirements-txt-fixer
+        args:
           - constraints/3.8.txt
           - constraints/3.9.txt
           - constraints/3.10.txt
@@ -27,21 +47,31 @@ repos:
           - requirements/lint.txt
           - requirements/package.txt
           - requirements/test.txt
-        id: requirements-txt-fixer
-      - files: .pre-commit-config.yaml
-        id: sort-simple-yaml
       - id: trailing-whitespace
-    repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.4.0
-  - hooks:
-      - entry: pipenv run python -m black
-        id: black
+
+  - repo: local
+    hooks:
+      # Ruff, the Python auto-correcting linter written in Rust, Ruff can be used to
+      # replace Flake8 (plus dozens of plugins), isort, pydocstyle, yesqa, eradicate,
+      # pyupgrade, and autoflake
+      - id: ruff
+        entry: python -m ruff --force-exclude --fix --show-fixes
+        language: system
+        name: ruff
+        types:
+          - python
+
+      # Black formatter
+      - id: black
+        entry: python -m black
         language: system
         name: black
         types:
           - python
-      - entry: pipenv run python -m isort --filter-files
-        id: isort
+
+      # Isort fixer
+      - id: isort
+        entry: python -m isort --filter-files
         language: system
         name: isort
         require_serial: true
@@ -49,29 +79,28 @@ repos:
           - cython
           - pyi
           - python
-      - entry: make mypy
-        id: mypy
+
+      # Mypy linter
+      - id: mypy
+        entry: make mypy
         language: system
         name: mypy
         pass_filenames: false
         require_serial: true
         types:
           - python
-      - entry: pipenv run python -m ruff --force-exclude
-        id: ruff
-        language: system
-        name: ruff
-        types:
-          - python
-      - entry: pipenv run toml-sort
-        id: toml-sort
+
+      # Toml sort
+      - id: toml-sort
+        entry: toml-sort
         language: system
         name: toml-sort
         types:
           - toml
-      - entry: found Copier update rejection files; review them and remove them
+
+      # Exclude copier intermediate files
+      - id: forbidden-files
+        entry: found Copier update rejection files; review them and remove them
         files: \.rej$
-        id: forbidden-files
         language: fail
         name: forbidden files
-    repo: local
