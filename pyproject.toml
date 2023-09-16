@@ -6,12 +6,15 @@ requires = ["setuptools", "setuptools-scm"]
 authors = [{email = "i@huxuan.org", name = "huxuan"}]
 classifiers = [
   "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
   "License :: OSI Approved :: MIT License",
   "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
   "Programming Language :: Python :: 3.10",
   "Programming Language :: Python :: 3.11",
   "Programming Language :: Python :: 3.8",
   "Programming Language :: Python :: 3.9",
+  "Topic :: Software Development",
 ]
 description = "A development-focused Python project template with various integrations, configurations and modules."
 dynamic = ["dependencies", "optional-dependencies", "version"]
@@ -70,6 +73,7 @@ minversion = "6.0"
 extend-exclude = ["template"]
 fix = true
 ignore = [
+  # https://docs.astral.sh/ruff/rules/#pydocstyle-d
   "D203",
   "D204",
   "D213",

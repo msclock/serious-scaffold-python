@@ -8,8 +8,10 @@ requires = ["setuptools", "setuptools-scm"]
 authors = [{email = "i@huxuan.org", name = "huxuan"}]
 classifiers = [
   "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
   "License :: OSI Approved :: {{ copyright_license }}",
   "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
 [%- if version_between("3.10", min_py, max_py) %]
   "Programming Language :: Python :: 3.10",
 [%- endif %]
@@ -22,6 +24,7 @@ classifiers = [
 [%- if version_between("3.9", min_py, max_py) %]
   "Programming Language :: Python :: 3.9",
 [%- endif %]
+  "Topic :: Software Development",
 ]
 description = "{{ project_description }}"
 dynamic = ["dependencies", "optional-dependencies", "version"]
@@ -92,6 +95,7 @@ extend-exclude = ["template"]
 [%- endif %]
 fix = true
 ignore = [
+  # https://docs.astral.sh/ruff/rules/#pydocstyle-d
   "D203",
   "D204",
   "D213",
