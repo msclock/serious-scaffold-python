@@ -85,6 +85,14 @@ repo_name:
   help: 'Provide a name for the repository:'
   type: str
 
+default_branch:
+  default: master
+  choices:
+    - master
+    - main
+  help: 'Choose the default branch for the repository:'
+  type: str
+
 package_name:
   default: '{{ repo_name|regex_replace("-python$", "") }}'
   help: 'Specify the name of the distributable package for the project (often used in "pip install <package_name>"):'

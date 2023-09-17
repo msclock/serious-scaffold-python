@@ -8,7 +8,7 @@ on:
       - synchronize
   push:
     branches:
-      - main
+      - {{ default_branch }}
 
 concurrency:
   cancel-in-progress: true

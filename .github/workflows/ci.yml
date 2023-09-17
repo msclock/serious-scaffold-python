@@ -7,7 +7,7 @@ on:
       - synchronize
   push:
     branches:
-      - main
+      - master
 
 concurrency:
   cancel-in-progress: true
